@@ -1,6 +1,8 @@
 from dataclasses import asdict, fields
 import os
+from fastapi import Request
 from nicegui import ui
+from urllib.parse import urlparse
 from Combat_Testing import Creature, Stats
 
 """
@@ -76,9 +78,43 @@ def build_number_inputs(cls, filter=None): #FILTER ONLY BUILD INPUTS FROM ENTRIE
     return inputs
 
 
+def create_page(info, prev_path, current_path): #takes in custom info.
+    
+    ui.label(info["title"]).classes('text-4xl')
+
+    ui.button(
+    'Back',
+    on_click=lambda: ui.navigate.to(prev_path)) #PREVIOUS LINK
+
+    for key, value in info["data"].items():
+        ui.label(key).classes('text-xl')
+        ui.label(value).classes('text-base')
+    
+    for key, value in info["buttons"].items():
+        ui.button(key, on_click=lambda x=value: ui.navigate.to(current_path + f'/{x}'))#FOLLOW UP LINK
+
+    return
+
+
+
 # MAIN MENU
 @ui.page('/')
 def main_menu():
+
+    # info = {
+    # "title": "Main Menu",
+
+    # # "data": {
+    #     # "Stats": class_to_text(self.stats)},
+
+    # "buttons":{ #Display name and then page redirect name
+    #     "Attack":"attack",
+    #     "Inventory":"inventory",
+    #     "Abilities":"abilities"
+    #     }
+    #     }
+    
+
     ui.label('Main Menu').classes('text-h4')
 
     ui.button(
@@ -149,29 +185,42 @@ def create_character():
 
 # INDIVIDUAL CHARACTER PAGE
 @ui.page('/character/{name}') 
-def character_page(name: str):
+def character_page(request: Request, name: str):
 
     character = Creature.load(name)
 
     info = character.get_page_info()
 
-    # def create_page(info):
-        
-    #     return
+    current_path = request.url.path
 
-    ui.label(info["title"]).classes('text-4xl')
+    full_prev_path = request.headers.get('referer', '/')
+    prev_path = urlparse(full_prev_path).path
 
-    for key, value in info["data"].items():
-        ui.label(key).classes('text-xl')
-        ui.label(value).classes('text-base')
+    # current_path = ui.run_javascript('return window.location.pathname')
 
-    ui.button(
-        'Back to Characters',
-        on_click=lambda: ui.navigate.to('/characters')
-    )
+    # prev_path = ui.run_javascript('return new URL(document.referrer).pathname')
+    
+    create_page(info, prev_path, current_path)
+    
 
-    for key, value in info["buttons"].items():
-        ui.button(key, on_click=lambda x=value: ui.navigate.to(f'/character/{name}/{x}'))#GPT spotted x=entry missing leading to bug?
+    # ui.label(info["title"]).classes('text-4xl')
+
+    
+# def get_path_history():
+#     # Use ui.session to store per-user history
+#     if not hasattr(ui.session, 'path_history'):
+#         ui.session.path_history = {'current': None, 'previous': None}
+#     return ui.session.path_history
+    
+# def update_paths():
+#     path_history = get_path_history()
+#     current = ui.run_javascript('return window.location.pathname')
+    
+#     if current != path_history['current']:
+#         path_history['previous'] = path_history['current']
+#         path_history['current'] = current
+
+#     return path_history['current'], path_history['previous']
 
 
 
