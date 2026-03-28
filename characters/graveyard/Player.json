@@ -1,0 +1,30 @@
+{
+  "name": "Player",
+  "stats": {
+    "size": 1,
+    "strength": 1,
+    "agility": 1,
+    "magic": 1,
+    "energy": 1,
+    "max_health": 1,
+    "rate": 1.0,
+    "force": 1,
+    "health": -4.156
+  },
+  "armor": {
+    "name": "armor",
+    "weight": 1.3,
+    "protection": 1,
+    "crush": 0.1,
+    "slash": 0.6,
+    "pierce": 0.3
+  },
+  "weapon": {
+    "name": "weapon",
+    "accuracy": 0.8,
+    "weight": 1,
+    "crush": 0.4,
+    "slash": 0.3,
+    "pierce": 0.3
+  }
+}

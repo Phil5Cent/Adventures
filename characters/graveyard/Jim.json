@@ -1,0 +1,30 @@
+{
+  "name": "Jim",
+  "stats": {
+    "size": 1.0,
+    "strength": 1.0,
+    "agility": 1.0,
+    "magic": 1.0,
+    "energy": 1,
+    "max_health": 1.0,
+    "rate": 1.0,
+    "force": 1.0,
+    "health": -0.020000000000000018
+  },
+  "armor": {
+    "name": "armor",
+    "weight": 1.3,
+    "protection": 1,
+    "crush": 0.1,
+    "slash": 0.6,
+    "pierce": 0.3
+  },
+  "weapon": {
+    "name": "weapon",
+    "accuracy": 0.8,
+    "weight": 1,
+    "crush": 0.4,
+    "slash": 0.3,
+    "pierce": 0.3
+  }
+}

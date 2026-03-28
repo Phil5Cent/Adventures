@@ -1,0 +1,30 @@
+{
+  "name": "Phil",
+  "stats": {
+    "size": 1.0,
+    "strength": 1.3,
+    "agility": 1.2,
+    "magic": 2.0,
+    "energy": 1,
+    "max_health": 1.0,
+    "rate": 0.8333333333333334,
+    "force": 1.3,
+    "health": 18.999999999999996
+  },
+  "armor": {
+    "name": "armor",
+    "weight": 1.3,
+    "protection": 1,
+    "crush": 0.1,
+    "slash": 0.6,
+    "pierce": 0.3
+  },
+  "weapon": {
+    "name": "weapon",
+    "accuracy": 0.8,
+    "weight": 1,
+    "crush": 0.4,
+    "slash": 0.3,
+    "pierce": 0.3
+  }
+}

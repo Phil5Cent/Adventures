@@ -1,0 +1,55 @@
+
+
+
+What combat stats should all creatures have
+
+
+
+(relative stats to a human, later modified by size).
+	BASE STATS
+Size, 3
+Strength, 1.3
+Speed, 0.8
+Energy, 1 
+Mana, 1
+Armor, 1
+
+	RESULT STATS
+Max_Health, 100*Size^3
+Action_Speed, 100*Speed/Size
+Power, Action_Speed * Strength ^ 2
+
+
+
+
+	COMBAT
+Attack_Speed = 
+
+
+Giant 
+Centaur
+Human
+Golem
+Dwarf
+
+
+
+speed,0.96
+size,3.60
+strength,5.29
+athleticism,3.6
+intelligence,11
+exertion,1
+clarity,1
+magicliteracy,9
+luck,5
+health,495.9
+maxhealth,495.9
+armor,5
+difficulty,3
+gender,male
+age,351
+evil,-4
+
+
+Power:56, Speed:217, Accuracy:80%
